@@ -14,15 +14,17 @@ public class UserDao {
 	
 	@Transactional
 	public void saveUser(User user) {
-		System.out.println(user.getName()+ " " +user.getAge());
 		Transaction transaction=null;
 		
 		try(Session session = Hibernate.getSessionFactory().openSession()) {
 //
 			transaction=session.beginTransaction();
 			
+			System.out.println("done");
 			session.save(user);
+			System.out.println("after save done");
 			transaction.commit();
+			System.out.println("after save commit");
 
 			
 		}

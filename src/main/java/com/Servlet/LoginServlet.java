@@ -7,20 +7,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-import com.Dao.UserDao;
-import com.Entity.User;
-import com.Entity.User.UserType;
-
-
-public class SignupServlet extends HttpServlet {
+/**
+ * Servlet implementation class LoginServlet
+ */
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignupServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,19 +25,10 @@ public class SignupServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		User user=new User();
-//		
-		user.setUsername("Mahdi");
-		user.setPassword("password");
-		user.setUserType(UserType.STUDENT);
-		UserDao userDao=new UserDao();
-		userDao.saveUser(user);
-
-		RequestDispatcher view=request.getRequestDispatcher("/pages/Signup.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("/pages/Login.jsp");
 		view.forward(request, response);
-
 	}
 
 	/**
@@ -48,7 +36,10 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("how are you brother");
+		System.out.println(request.getContextPath()+"/signup");
+		response.sendRedirect(request.getContextPath()+"/signup");
+//		doGet(request, response);
 	}
 
 }
