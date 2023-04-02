@@ -78,7 +78,7 @@
                     </div>
                 </h1>
               
-                <form action="login" method="post" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                <form action="signin" method="post" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-2 pt-4">
                         <input type="email" name="email" id="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black">
                     </div>

@@ -30,13 +30,13 @@ public class SignupServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		User user=new User();
-//		
-		user.setUsername("Mahdi");
-		user.setPassword("password");
-		user.setUserType(UserType.STUDENT);
-		UserDao userDao=new UserDao();
-		userDao.saveUser(user);
+//		User user=new User();
+////		
+//		user.setUsername("Mahdi");
+//		user.setPassword("password");
+//		user.setUserType(UserType.STUDENT);
+//		UserDao userDao=new UserDao();
+//		userDao.saveUser(user);
 
 		RequestDispatcher view=request.getRequestDispatcher("/pages/Signup.jsp");
 		view.forward(request, response);
