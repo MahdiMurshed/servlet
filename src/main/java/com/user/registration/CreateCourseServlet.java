@@ -14,12 +14,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * Servlet implementation class RegistrationServlet
+ * Servlet implementation class CreateCourseServlet
  */
-@WebServlet("/register")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/create-course")
+public class CreateCourseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public RegistrationServlet() {
+	public CreateCourseServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,44 +30,30 @@ public class RegistrationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher view=request.getRequestDispatcher("/pages/Signup.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("/pages/CreateCourse.jsp");
 		view.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String department = request.getParameter("department");
-        String type = request.getParameter("type");
-        String password = request.getParameter("password");
-        String repeatPass = request.getParameter("re-password");
+        String course_name = request.getParameter("course_name");
+        String course_code = request.getParameter("course_code");
         RequestDispatcher dispatcher = null;
         Connection con = null;
-//        PrintWriter out = response.getWriter();
-//        out.print(name);
-//        out.print(email);
-//        out.print(department);
-//        out.print(type);
-//        out.print(password);
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
         	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
-        	PreparedStatement pst = con.prepareStatement("insert into users(name,email,password,contact,role,status) values(?,?,?,?,?,?)");
-        	pst.setString(1, name);
-        	pst.setString(2, email);
-        	pst.setString(3, password);
-        	pst.setString(4, department);
-        	pst.setString(5, type);
-        	pst.setString(6, "ok");
+        	PreparedStatement pst = con.prepareStatement("insert into courses(course_name,course_code) values(?,?)");
+        	pst.setString(1, course_name);
+        	pst.setString(2, course_code);
         	int rowCount = pst.executeUpdate();
-        	dispatcher = request.getRequestDispatcher("/pages/Login.jsp");
+        	dispatcher = request.getRequestDispatcher("/pages/CreateCourse.jsp");
         	if(rowCount > 0) {
         		request.setAttribute("status", "success");
+        		dispatcher.forward(request, response);
         	}else {
         		request.setAttribute("status", "failed");
         	}
-        	dispatcher.forward(request, response);
         }catch(Exception e){
         	e.printStackTrace();
         }finally {

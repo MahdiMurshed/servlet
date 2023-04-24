@@ -20,6 +20,12 @@ import java.sql.ResultSet;
 @WebServlet("/signin")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		RequestDispatcher view=request.getRequestDispatcher("/pages/Login.jsp");
+		view.forward(request, response);
+	}
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
