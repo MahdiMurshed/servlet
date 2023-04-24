@@ -20,6 +20,8 @@ public class Hibernate {
 	 private static SessionFactory sessionFactory;
 
 	public static SessionFactory getSessionFactory() {
+		  String password = "m@1234hdi";
+//		  String password = "12345678";
 		  if (sessionFactory == null) {
 		   try {
 		    Configuration configuration = new Configuration();
@@ -29,7 +31,7 @@ public class Hibernate {
 		    settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
 		    settings.put(Environment.URL, "jdbc:mysql://localhost:3306/servlet_db?useSSL=false");
 		    settings.put(Environment.USER, "root");
-		    settings.put(Environment.PASS, "m@1234hdi");
+		    settings.put(Environment.PASS, password);
 		    settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
 		    settings.put(Environment.FORMAT_SQL, "true");
 		    settings.put(Environment.SHOW_SQL, "true");
