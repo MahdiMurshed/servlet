@@ -35,27 +35,6 @@
                   <input type="text" placeholder="Course Code" name="course_code"
                     class="w-full px-4 py-2 mt-2 border bg-gray-800 border border-blue-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
             </div>
-            <!-- <div class="mt-4">
-              <label for="dept" class="block">Department</label>
-              <select id="dept" name="department"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose a department</option>
-                <option value="cse">Computer Science and Engineering</option>
-                <option value="eee">Electrical and Electronics Engineering</option>
-                <option value="swe">Software Engineering</option>
-                <option value="fet">Food Engineering and Tea Technology</option>
-              </select>
-            </div>
-            <div class="mt-4">
-              <label for="type" class="block">Create Account As</label>
-              <select id="countries" name="type"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose a type</option>
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-
-              </select>
-            </div> -->
             <div class="flex">
               <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Create Course</button>
             </div>
