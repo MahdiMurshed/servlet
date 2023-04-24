@@ -20,6 +20,12 @@ import java.sql.ResultSet;
 @WebServlet("/signin")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		RequestDispatcher view=request.getRequestDispatcher("/pages/Login.jsp");
+		view.forward(request, response);
+	}
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
@@ -28,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		try {
 		 Class.forName("com.mysql.jdbc.Driver");
-		 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+		 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
 		 PreparedStatement pst = con.prepareStatement("select * from users where email = ? and password = ?");
 		 pst.setString(1, email);
 		 pst.setString(2, password);
