@@ -35,15 +35,10 @@
                     class="w-full bg-gray-800 border-blue-400 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
             </div>
             <div class="mt-4">
-              <label for="dept" class="block">Department</label>
-              <select id="dept" name="department"
-                class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
-                <option selected>Choose a department</option>
-                <option value="cse">Computer Science and Engineering</option>
-                <option value="eee">Electrical and Electronics Engineering</option>
-                <option value="swe">Software Engineering</option>
-                <option value="fet">Food Engineering and Tea Technology</option>
-              </select>
+              <label for="dept" class="block">Contact</label>
+              <input type="text" placeholder="Contact" name="contact"
+                    class="w-full bg-gray-800 border-blue-400 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 focus:bg-gray-800">
+                    
             </div>
             <div class="mt-4">
               <label for="type" class="block">Create Account As</label>
@@ -51,7 +46,6 @@
                 class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
                 <option selected>Choose a type</option>
                 <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
               </select>
             </div>
             <div class="mt-4">

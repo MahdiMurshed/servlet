@@ -38,7 +38,7 @@ public class RegistrationServlet extends HttpServlet {
 		//doGet(request, response);
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String department = request.getParameter("department");
+        String contact = request.getParameter("contact");
         String type = request.getParameter("type");
         String password = request.getParameter("password");
         String repeatPass = request.getParameter("re-password");
@@ -57,8 +57,8 @@ public class RegistrationServlet extends HttpServlet {
         	pst.setString(1, name);
         	pst.setString(2, email);
         	pst.setString(3, password);
-        	pst.setString(4, department);
-        	pst.setString(5, type);
+        	pst.setString(4, contact);
+        	pst.setString(5, "student");
         	pst.setString(6, "ok");
         	int rowCount = pst.executeUpdate();
         	dispatcher = request.getRequestDispatcher("/pages/Login.jsp");
