@@ -20,8 +20,8 @@ public class Hibernate {
 	 private static SessionFactory sessionFactory;
 
 	public static SessionFactory getSessionFactory() {
-		  String password = "m@1234hdi";
-//		  String password = "12345678";
+//		  String password = "m@1234hdi";
+		  String password = "12345678";
 		  if (sessionFactory == null) {
 		   try {
 		    Configuration configuration = new Configuration();
