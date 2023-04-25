@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>Create Course</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
   </head>
 
   <body>
@@ -37,12 +36,6 @@
             </div>
             <div class="flex">
               <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Create Course</button>
-            </div>
-            <div class="mt-6 text-grey-dark">
-              Already have an account?
-              <a class="text-blue-600 hover:underline" href="/login">
-                Log in
-              </a>
             </div>
           </div>
         </form>

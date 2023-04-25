@@ -42,7 +42,7 @@ public class CreateCourseServlet extends HttpServlet {
         Connection con = null;
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
         	PreparedStatement pst = con.prepareStatement("insert into courses(course_name,course_code) values(?,?)");
         	pst.setString(1, course_name);
         	pst.setString(2, course_code);
