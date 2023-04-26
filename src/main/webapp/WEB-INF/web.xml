@@ -50,4 +50,14 @@
     <servlet-name>CourseAssignServlet</servlet-name>
     <url-pattern>/assign-course</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CourseRegistrationServlet</display-name>
+    <servlet-name>CourseRegistrationServlet</servlet-name>
+    <servlet-class>com.user.registration.CourseRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseRegistrationServlet</servlet-name>
+    <url-pattern>/register-course</url-pattern>
+  </servlet-mapping>
 </web-app>

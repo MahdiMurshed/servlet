@@ -9,7 +9,7 @@
       <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="bg-gray-900">
+    <body class="bg-gradient-to-r from-gray-700 via-gray-900 to-black">
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
@@ -65,7 +65,8 @@
                  <input type="hidden" class="bg-transparent text-white" name="course_code" value="<%=rs.getString(1)%>" />
                   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                   <select name="user_email" id="user" onchange="this.form.submit()" class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
-                      <c:forEach items="${userList}" var="user">
+                    <option selected>Select a teacher</option>  
+                    <c:forEach items="${userList}" var="user">
                           <option value="${user.email}">${user.name}</option>
                       </c:forEach>
                   </select>

@@ -14,3 +14,12 @@ CREATE TABLE user_courses (
   FOREIGN KEY (email) REFERENCES users(email),
   FOREIGN KEY (course_code) REFERENCES courses(course_code)
 );
+
+-- student-course
+CREATE TABLE student_courses (
+  email VARCHAR(255),
+  course_code VARCHAR(255),
+  PRIMARY KEY (email, course_code),
+  FOREIGN KEY (email) REFERENCES users(email),
+  FOREIGN KEY (course_code) REFERENCES courses(course_code)
+);

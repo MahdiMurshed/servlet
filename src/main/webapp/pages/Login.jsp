@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="min-h-screen bg-gray-900">
+  <body class="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black">
   <div class="flex justify-center items-center h-screen">
       <div
         class="px-8 py-6 mx-4 text-left bg-gray-800 text-white border border-blue-400 shadow-lg rounded-md md:w-1/3 lg:w-1/3 sm:w-1/3">

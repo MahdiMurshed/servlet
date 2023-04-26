@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
     <title>Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white">
     <jsp:include page="components/Navbar.jsp" />
     <p>Welcome this is profile page</p>
   </body>

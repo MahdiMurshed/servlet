@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet implementation class CourseAssignServlet
+ * Servlet implementation class CourseRegistrationServlet
  */
 
-@WebServlet("/assign")
-public class CourseAssignServlet extends HttpServlet {
+@WebServlet("/register-courses")
+public class CourseRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CourseAssignServlet() {
+    public CourseRegistrationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,7 +62,7 @@ public class CourseAssignServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 	        }
-		view=request.getRequestDispatcher("/pages/CourseAssign.jsp");
+		view=request.getRequestDispatcher("/pages/CourseRegistration.jsp");
 		view.forward(request, response);
 	}
 
@@ -72,34 +72,37 @@ public class CourseAssignServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-        String course_code = request.getParameter("course_code");
-        String user_email = request.getParameter("user_email");
+        //TODO: Get the logged in user's email
+        String user_email = "123mahdi12345@gmail.com";
+        String[] selectedCourses = request.getParameterValues("courses");
         RequestDispatcher dispatcher = null;
-        Connection con = null;
-        System.out.println(course_code);
-        System.out.println(user_email);
-        try {
-        	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
-			PreparedStatement deleteStatement = con.prepareStatement("DELETE FROM user_courses WHERE course_code = ?");
-            deleteStatement.setString(1, course_code);
+        Connection conn = null;
+         try {
+            // Establish database connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "m@1234hdi");
+            
+            // Delete existing courses for the user
+            PreparedStatement deleteStatement = conn.prepareStatement("DELETE FROM student_courses WHERE email = ?");
+            deleteStatement.setString(1, user_email);
             deleteStatement.executeUpdate();
-        	PreparedStatement statement = con.prepareStatement("insert into user_courses(email,course_code) values(?,?)");
-        	statement.setString(1, user_email);
-        	statement.setString(2, course_code);
-        	int rowCount = statement.executeUpdate();
-        	if(rowCount > 0) {
-        		request.setAttribute("status", "success");
-        		dispatcher=request.getRequestDispatcher("/pages/CourseAssign.jsp");
-        		dispatcher.forward(request, response);
-        	}else {
-        		request.setAttribute("status", "failed");
-        	}
+            
+            // Assign new courses for the user
+            PreparedStatement insertStatement = conn.prepareStatement("INSERT INTO student_courses (email, course_code) VALUES (?, ?)");
+            for (String courseCode : selectedCourses) {
+            	System.out.println("Selected courses: " + courseCode);
+                insertStatement.setString(1, user_email);
+                insertStatement.setString(2, courseCode);
+                insertStatement.executeUpdate();
+            }
+            
+            // Close database connection
+            conn.close();
         }catch(Exception e){
         	e.printStackTrace();
         }finally {
         	try {
-				con.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

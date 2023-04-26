@@ -31,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession();
+
+		//TODO: Save user_email, role in session
 		RequestDispatcher dispatcher = null;
 		try {
 		 Class.forName("com.mysql.jdbc.Driver");
