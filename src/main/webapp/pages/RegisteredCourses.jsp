@@ -15,8 +15,10 @@
       { Class.forName("com.mysql.cj.jdbc.Driver");
       Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
-      String joined = "SELECT c.course_code, c.course_name, u.name FROM courses c LEFT JOIN user_courses uc ON c.course_code = uc.course_code LEFT JOIN users u ON u.email = uc.email;";
+      String email = (String)session.getAttribute("email");
+      String joined = "SELECT course_name, courses.course_code, course_credit, course_semester FROM student_courses LEFT JOIN courses ON student_courses.course_code = courses.course_code WHERE email= ? ;";
       PreparedStatement stmt=con.prepareStatement(joined);
+      stmt.setString(1,email);
       ResultSet rs=stmt.executeQuery();
       String sqlt="select name,email from users where role='student';" ;
       PreparedStatement stlt=con.prepareStatement(sqlt);
@@ -34,16 +36,16 @@
           <thead class="text-lg uppercase">
             <tr>
               <th scope="col" class="px-6 py-3">
-                Course code
-              </th>
-              <th scope="col" class="px-6 py-3">
                 Course Name
               </th>
               <th scope="col" class="px-6 py-3">
-                Assigned Teacher
+                Course Code
               </th>
               <th scope="col" class="px-6 py-3">
-                Assign Teacher
+                Course Credit
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Course Semester
               </th>
             </tr>
           </thead>
@@ -59,17 +61,10 @@
                   <!-- <%= rs.getString(2)%> -->
                 </td>
                 <td class="px-6 py-4">
-                  <input disabled class="bg-transparent text-white" name="course_teacher" value="<%=rs.getString(3)%>" />
+                  <input disabled class="bg-transparent text-white" name="course_credit" value="<%=rs.getString(3)%>" />
                 </td>
                 <td class="px-6 py-4">
-                 <input type="hidden" class="bg-transparent text-white" name="course_code" value="<%=rs.getString(1)%>" />
-                  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                  <select name="user_email" id="user" onchange="this.form.submit()" class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
-                    <option selected>Select a teacher</option>  
-                    <c:forEach items="${userList}" var="user">
-                          <option value="${user.email}">${user.name}</option>
-                      </c:forEach>
-                  </select>
+                 <input disabled class="bg-transparent text-white" name="course_semester" value="<%=rs.getString(4)%>" />
                 </td>
               </tr>
             </form>

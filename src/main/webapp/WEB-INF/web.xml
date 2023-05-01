@@ -60,4 +60,14 @@
     <servlet-name>CourseRegistrationServlet</servlet-name>
     <url-pattern>/register-course</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisteredCoursesServlet</display-name>
+    <servlet-name>RegisteredCoursesServlet</servlet-name>
+    <servlet-class>com.user.registration.RegisteredCoursesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisteredCoursesServlet</servlet-name>
+    <url-pattern>/registered-courses</url-pattern>
+  </servlet-mapping>
 </web-app>

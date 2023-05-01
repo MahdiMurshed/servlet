@@ -36,14 +36,25 @@
             </div>
             <div class="mt-4">
               <label class="block" for="Course Code">Credit<label>
-                  <input type="text" placeholder="Course Code" name="course_code"
+                  <input type="text" placeholder="Course Code" name="credit"
                     class="w-full px-4 py-2 mt-2 border bg-gray-800 border border-blue-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
             </div>
-            <select name="user_email" id="user" onchange="this.form.submit()" class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
-              <option selected>Select semester</option>  
+            <div>
+             <label class="block" for="Course Code">Semester<label>
+            <select name="semester" id="user"  class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
+              <option>Select a semester </option>
+              <option >1</option>  
+              <option>2</option> 
+              <option>3</option> 
+               <option>4</option> 
+                <option>5</option> 
+                 <option>6</option> 
+                  <option>7</option> 
+                   <option>8</option> 
             </select>
+            </div>
             <div class="flex">
-              <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Create Course</button>
+              <button onchange="this.form.submit()" class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Create Course</button>
             </div>
           </div>
         </form>

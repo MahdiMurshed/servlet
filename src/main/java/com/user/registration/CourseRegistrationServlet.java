@@ -42,7 +42,7 @@ public class CourseRegistrationServlet extends HttpServlet {
 	        List<User> userList = new ArrayList<>();
 	        try {
 	        	Class.forName("com.mysql.cj.jdbc.Driver");
-	        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+	        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
 	        	PreparedStatement pst = con.prepareStatement("select name,email from users where role='student';");
 	        	ResultSet rowCount = pst.executeQuery();
 	        	while (rowCount.next()) {
@@ -73,14 +73,14 @@ public class CourseRegistrationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
         //TODO: Get the logged in user's email
-        String user_email = "123mahdi12345@gmail.com";
+        String user_email = (String) request.getSession().getAttribute("email");
         String[] selectedCourses = request.getParameterValues("courses");
         RequestDispatcher dispatcher = null;
         Connection conn = null;
          try {
             // Establish database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "m@1234hdi");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "12345678");
             
             // Delete existing courses for the user
             PreparedStatement deleteStatement = conn.prepareStatement("DELETE FROM student_courses WHERE email = ?");

@@ -38,14 +38,18 @@ public class CreateCourseServlet extends HttpServlet {
 		//doGet(request, response);
         String course_name = request.getParameter("course_name");
         String course_code = request.getParameter("course_code");
+        String course_credit = request.getParameter("credit");
+        String course_semester = request.getParameter("semester");
         RequestDispatcher dispatcher = null;
         Connection con = null;
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
-        	PreparedStatement pst = con.prepareStatement("insert into courses(course_name,course_code) values(?,?)");
+        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+        	PreparedStatement pst = con.prepareStatement("insert into courses(course_name,course_code,course_credit,course_semester) values(?,?,?,?)");
         	pst.setString(1, course_name);
         	pst.setString(2, course_code);
+        	pst.setString(3, course_credit);
+        	pst.setString(4, course_semester);
         	int rowCount = pst.executeUpdate();
         	dispatcher = request.getRequestDispatcher("/pages/CreateCourse.jsp");
         	if(rowCount > 0) {

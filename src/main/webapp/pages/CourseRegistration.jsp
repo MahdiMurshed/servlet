@@ -13,7 +13,7 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
       PreparedStatement stmt=con.prepareStatement(sql);
       ResultSet rs=stmt.executeQuery();
