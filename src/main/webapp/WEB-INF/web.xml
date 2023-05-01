@@ -70,4 +70,24 @@
     <servlet-name>RegisteredCoursesServlet</servlet-name>
     <url-pattern>/registered-courses</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TeacherCourses</display-name>
+    <servlet-name>TeacherCourses</servlet-name>
+    <servlet-class>com.user.registration.TeacherCourses</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherCourses</servlet-name>
+    <url-pattern>/TeacherCourses</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisteredStudentsServlet</display-name>
+    <servlet-name>RegisteredStudentsServlet</servlet-name>
+    <servlet-class>com.user.registration.RegisteredStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisteredStudentsServlet</servlet-name>
+    <url-pattern>/registered-students</url-pattern>
+  </servlet-mapping>
 </web-app>
