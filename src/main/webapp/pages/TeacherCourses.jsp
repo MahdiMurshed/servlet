@@ -71,7 +71,7 @@
                  <td class="px-6 py-4">
                  <form action="RegisteredStudentsServlet" method="post">
                  <input type="hidden" name="class-code" value=<%= rs.getString(1) %> >
-                 <button type="submit" class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"><a href="/Servlet-Project/registered-students" class="text-lg font-bold">See Registered Students</a></button>
+                 <button type="submit" class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"><a href="/Servlet-Project/registered-students?courseCode=<%=rs.getString(2)%>" class="text-lg font-bold">See Registered Students</a></button>
                  </form>
                 </td>
               </tr>

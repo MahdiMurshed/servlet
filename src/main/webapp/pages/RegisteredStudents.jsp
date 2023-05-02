@@ -15,10 +15,10 @@
       { Class.forName("com.mysql.cj.jdbc.Driver");
       Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
-      String courseCode = (String)request.getAttribute("courseCode");
-      String joined = "SELECT name, users.email FROM student_courses LEFT JOIN users ON student_courses.email = users.email WHERE course_code= '239' ;";
+      String courseCode = (String)request.getParameter("courseCode");
+      String joined = "SELECT name, users.email FROM student_courses LEFT JOIN users ON student_courses.email = users.email WHERE course_code= ? ;";
       PreparedStatement stmt=con.prepareStatement(joined);
-      //stmt.setString(1,courseCode);
+      stmt.setString(1,courseCode);
       ResultSet rs=stmt.executeQuery();
       String sqlt="select name,email from users where role='student';" ;
       PreparedStatement stlt=con.prepareStatement(sqlt);

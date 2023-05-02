@@ -18,10 +18,10 @@ public class RegisteredStudentsServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 String classCode = request.getParameter("class-code");  
+		 String classCode = request.getParameter("courseCode");  
 		 request.setAttribute(classCode, classCode);
 		 RequestDispatcher view = null;
-		 view=request.getRequestDispatcher("/pages/RegisteredStudents.jsp");
+		 view=request.getRequestDispatcher("/pages/RegisteredStudents.jsp?courseCode=" + classCode);
 		 view.forward(request, response);
 		 
 	}
