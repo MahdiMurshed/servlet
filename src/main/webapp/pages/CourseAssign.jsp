@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
   <%@ page import="java.sql.*" %>
+  <%
+    if(!session.getAttribute("role").equals("admin")){
+      response.sendRedirect("landing.jsp");
+    }
+  %>
     <!DOCTYPE html>
     <html>
 
@@ -13,12 +18,12 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
       String sql="select course_name,course_code from courses;" ;
       String joined = "SELECT c.course_code, c.course_name, u.name FROM courses c LEFT JOIN user_courses uc ON c.course_code = uc.course_code LEFT JOIN users u ON u.email = uc.email;";
       PreparedStatement stmt=con.prepareStatement(joined);
       ResultSet rs=stmt.executeQuery();
-      String sqlt="select name,email from users where role='student';" ;
+      String sqlt="select name,email from users where role='teacher';" ;
       PreparedStatement stlt=con.prepareStatement(sqlt);
       ResultSet rt=stlt.executeQuery();
       if(rs.next()==false) 

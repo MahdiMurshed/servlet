@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%
+   if(!session.getAttribute("role").equals("teacher")){
+     response.sendRedirect("landing.jsp");
+   }
+  %>
   <%@ page import="java.sql.*" %>
     <!DOCTYPE html>
     <html>
@@ -13,7 +18,7 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
       String sql="select course_name,course_code from courses;" ;
       String courseCode = (String)request.getParameter("courseCode");
       String joined = "SELECT name, users.email FROM student_courses LEFT JOIN users ON student_courses.email = users.email WHERE course_code= ? ;";

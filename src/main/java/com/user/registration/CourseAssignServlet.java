@@ -42,8 +42,8 @@ public class CourseAssignServlet extends HttpServlet {
 	        List<User> userList = new ArrayList<>();
 	        try {
 	        	Class.forName("com.mysql.cj.jdbc.Driver");
-	        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
-	        	PreparedStatement pst = con.prepareStatement("select name,email from users where role='student';");
+	        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+	        	PreparedStatement pst = con.prepareStatement("select name,email from users where role='teacher';");
 	        	ResultSet rowCount = pst.executeQuery();
 	        	while (rowCount.next()) {
 	        	    String name = rowCount.getString("name");
@@ -80,7 +80,7 @@ public class CourseAssignServlet extends HttpServlet {
         System.out.println(user_email);
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
 			PreparedStatement deleteStatement = con.prepareStatement("DELETE FROM user_courses WHERE course_code = ?");
             deleteStatement.setString(1, course_code);
             deleteStatement.executeUpdate();
