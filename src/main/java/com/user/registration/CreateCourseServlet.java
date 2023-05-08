@@ -15,6 +15,7 @@ import java.sql.SQLException;
 
 /**
  * Servlet implementation class CreateCourseServlet
+ * Creates new courses in the database
  */
 @WebServlet("/create-course")
 public class CreateCourseServlet extends HttpServlet {
@@ -26,13 +27,20 @@ public class CreateCourseServlet extends HttpServlet {
        
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * sests the view
 	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher view=request.getRequestDispatcher("/pages/CreateCourse.jsp");
 		view.forward(request, response);
+		
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     * gets course details and pushes it into the database
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);

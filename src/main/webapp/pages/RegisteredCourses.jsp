@@ -1,3 +1,9 @@
+<!-- 
+Description: This JSP file allows students to see all their registered courses.
+Author: Mahdi Murshed & Tahsina Bintay Azam
+Date: 2023-05-09
+-->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%
    if(!session.getAttribute("role").equals("student")){

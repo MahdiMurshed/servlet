@@ -10,6 +10,7 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class RegisteredCoursesServlet
+ * Handles registration of the students
  */
 public class RegisteredCoursesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +25,7 @@ public class RegisteredCoursesServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Sets the view
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher view=request.getRequestDispatcher("/pages/RegisteredCourses.jsp");

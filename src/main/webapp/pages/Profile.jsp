@@ -1,3 +1,8 @@
+<!-- 
+Description: This JSP file contains profile elements of users.
+Author: Mahdi Murshed & Tahsina Bintay Azam
+Date: 2023-05-09
+-->
 <%
    if(session.getAttribute("email")==null){
 	   response.sendRedirect("landing.jsp");

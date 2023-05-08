@@ -25,7 +25,9 @@ public class RegistrationServlet extends HttpServlet {
     }
        
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGett(HttpServletRequest request, HttpServletResponse response)
+	 * Sets the view of the page
+	 * 
 	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,6 +35,10 @@ public class RegistrationServlet extends HttpServlet {
 		RequestDispatcher view=request.getRequestDispatcher("/pages/Signup.jsp");
 		view.forward(request, response);
 	}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * gets the information from the signup form and creates new users
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);

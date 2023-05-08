@@ -1,3 +1,9 @@
+<!-- 
+Description: This JSP file allows admin to assign courses to teachers.
+Author: Mahdi Murshed & Tahsina Bintay Azam
+Date: 2023-05-09
+-->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
   <%@ page import="java.sql.*" %>
   <%

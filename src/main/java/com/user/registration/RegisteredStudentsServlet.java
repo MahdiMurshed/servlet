@@ -10,12 +10,16 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class RegisteredStudentsServlet
+ * Fetch the list of students registered in a particular course
  */
 @WebServlet("/RegisteredStudentsServlet")
 public class RegisteredStudentsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * forwards course code to registered students page
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		// TODO Auto-generated method stub
 //		 String classCode = request.getParameter("courseCode");  

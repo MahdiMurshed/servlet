@@ -1,3 +1,8 @@
+<!-- 
+Description: This JSP file allows users to register for available courses.
+Author: Mahdi Murshed & Tahsina Bintay Azam
+Date: 2023-05-09
+-->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
   <%@ page import="java.sql.*" %>
   <%
@@ -36,7 +41,7 @@
       <form action="register-courses" method="post">
         <div class="flex w-2/3 justify-between mx-auto my-6">
           <h2 class="text-2xl text-center text-white my-2 font-bold">Register Courses</h2>
-          <button class="px-6 py-2 text-gray-900 bg-cyan-400 rounded-lg transition-all hover:scale-105">
+          <button type="submit" class="px-6 py-2 text-gray-900 bg-cyan-400 rounded-lg transition-all hover:scale-105">
             Submit
           </button>
         </div>

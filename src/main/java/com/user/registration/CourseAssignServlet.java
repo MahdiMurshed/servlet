@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * Servlet implementation class CourseAssignServlet
+ * This servlet handles assigning courses to teachers.
+ * For all the courses we have options to assign them to any teacher.
  */
 
 @WebServlet("/assign")
@@ -33,6 +35,7 @@ public class CourseAssignServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * sets view to course assign page.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -43,6 +46,12 @@ public class CourseAssignServlet extends HttpServlet {
 		view.forward(request, response);
 	}
 
+	/**
+	 * populates list of teachers for dropdown
+	 * 
+	 * @param request
+	 * tells us when to set the user list
+	 */
 	private void setUserListToRequest(HttpServletRequest request) {
 		Connection con = null;
 		List<User> userList = new ArrayList<>();
@@ -71,7 +80,10 @@ public class CourseAssignServlet extends HttpServlet {
 	}
 
 	/**
+	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * sets the course to its assigned teacher
+	 * delete if any duplicate
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

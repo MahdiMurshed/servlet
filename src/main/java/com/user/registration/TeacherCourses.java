@@ -24,6 +24,7 @@ public class TeacherCourses extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Sets the view of the page
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher view=request.getRequestDispatcher("/pages/TeacherCourses.jsp");

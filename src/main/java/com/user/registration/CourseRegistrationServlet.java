@@ -16,8 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet implementation class CourseRegistrationServlet
- */
+* Servlet implementation class CourseRegistrationServlet
+* This servlet handles course registration for students. It retrieves a list of
+* registered students from the database and displays it on the registration page.
+* When a student submits the form, it updates the database with the selected courses
+* for that student.
+*/
 
 @WebServlet("/register-courses")
 public class CourseRegistrationServlet extends HttpServlet {
@@ -31,9 +35,14 @@ public class CourseRegistrationServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * 
+@see
+ HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * This method retrieves a list of registered students from the database and sets it as
+	 * an attribute on the request object. It then forwards the request to the registration page.
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -67,8 +76,15 @@ public class CourseRegistrationServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 
+@see
+ HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * This method updates the database with the selected courses for the logged in student.
+	 * It first retrieves the logged in user's email from the session, and then retrieves the
+	 * selected courses from the request parameters. It then deletes any existing courses for
+	 * the user and inserts the new courses into the database.
 	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
@@ -108,7 +124,9 @@ public class CourseRegistrationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
         }
+        dispatcher=request.getRequestDispatcher("/pages/CourseRegistration.jsp");
+ 		dispatcher.forward(request, response);
 
 	}
-
+	
 }
