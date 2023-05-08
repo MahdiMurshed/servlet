@@ -16,8 +16,8 @@ pageEncoding="UTF-8"%>
     <jsp:include page="components/Navbar.jsp" />
    <section class="py-20 h-[80vh] flex justify-center items-center">
       <div class="container mx-auto px-4">
-        <h1 class="text-5xl font-bold mb-8">Welcome to the Website</h1>
-        <p class="text-lg mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida lacus est, sed tincidunt purus consequat sit amet. Sed at malesuada velit.</p>
+        <h1 class="text-5xl font-bold mb-8">Welcome to your profile!</h1>
+        <p class="text-lg mb-8">Discover what you can do with this website! :)</p>
       </div>
     </section>
     

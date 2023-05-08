@@ -18,7 +18,7 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
       String email = (String)session.getAttribute("email");
       String joined = "SELECT course_name, courses.course_code, course_credit, course_semester FROM user_courses LEFT JOIN courses ON user_courses.course_code = courses.course_code WHERE email= ? ;";
@@ -74,10 +74,9 @@
                  <input disabled class="bg-transparent text-white" name="course_semester" value="<%=rs.getString(4)%>" />
                 </td>
                  <td class="px-6 py-4">
-                 <form action="RegisteredStudentsServlet" method="post">
-                 <input type="hidden" name="class-code" value=<%= rs.getString(1) %> >
-                 <button type="submit" class="w-full px-2 py-2 mt-4 rounded-lg text-sm font-semibold text-gray-900 bg-cyan-400 transition-all hover:scale-105"><a href="/Servlet-Project/registered-students?courseCode=<%=rs.getString(2)%>" class="">See Students</a></button>
-                 </form>
+                 <a href="/Servlet-Project/registered-students?courseCode=<%=rs.getString(2)%>" class="">
+                      <button type="submit" class="w-full px-2 py-2 mt-4 rounded-lg text-sm font-semibold text-gray-900 bg-cyan-400 transition-all hover:scale-105">See Students</button>
+                   </a>
                 </td>
               </tr>
               <%}while(rs.next());

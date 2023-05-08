@@ -18,7 +18,7 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
       String joined = "SELECT c.course_code, c.course_name, u.name FROM courses c LEFT JOIN user_courses uc ON c.course_code = uc.course_code LEFT JOIN users u ON u.email = uc.email;";
       PreparedStatement stmt=con.prepareStatement(joined);

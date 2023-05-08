@@ -18,7 +18,7 @@
       <% 
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
-      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+      Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
       String sql="select course_name,course_code from courses;" ;
       String email = (String)session.getAttribute("email");
       String joined = "SELECT course_name, courses.course_code, course_credit, course_semester FROM student_courses LEFT JOIN courses ON student_courses.course_code = courses.course_code WHERE email= ? ;";

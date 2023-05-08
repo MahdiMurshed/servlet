@@ -38,32 +38,36 @@ public class CourseAssignServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	        RequestDispatcher view = null;
-	        Connection con = null;
-	        List<User> userList = new ArrayList<>();
-	        try {
-	        	Class.forName("com.mysql.cj.jdbc.Driver");
-	        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
-	        	PreparedStatement pst = con.prepareStatement("select name,email from users where role='teacher';");
-	        	ResultSet rowCount = pst.executeQuery();
-	        	while (rowCount.next()) {
-	        	    String name = rowCount.getString("name");
-	        	    String email = rowCount.getString("email");
-	        	    User user = new User(name, email);
-	        	    userList.add(user);
-	        	}
-	           request.setAttribute("userList", userList);
-	           }catch(Exception e){
-	        	e.printStackTrace();
-	           }finally {
-	        	try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        }
+		setUserListToRequest(request);
 		view=request.getRequestDispatcher("/pages/CourseAssign.jsp");
 		view.forward(request, response);
+	}
+
+	private void setUserListToRequest(HttpServletRequest request) {
+		Connection con = null;
+		List<User> userList = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
+			PreparedStatement pst = con.prepareStatement("select name,email from users where role='teacher';");
+			ResultSet rowCount = pst.executeQuery();
+			while (rowCount.next()) {
+				String name = rowCount.getString("name");
+				String email = rowCount.getString("email");
+				User user = new User(name, email);
+				userList.add(user);
+			}
+		   request.setAttribute("userList", userList);
+		   }catch(Exception e){
+			e.printStackTrace();
+		   }finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -74,13 +78,14 @@ public class CourseAssignServlet extends HttpServlet {
 		//doGet(request, response);
         String course_code = request.getParameter("course_code");
         String user_email = request.getParameter("user_email");
-        RequestDispatcher dispatcher = null;
+		setUserListToRequest(request);
+		RequestDispatcher dispatcher = null;
         Connection con = null;
         System.out.println(course_code);
         System.out.println(user_email);
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","m@1234hdi");
+        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
 			PreparedStatement deleteStatement = con.prepareStatement("DELETE FROM user_courses WHERE course_code = ?");
             deleteStatement.setString(1, course_code);
             deleteStatement.executeUpdate();
