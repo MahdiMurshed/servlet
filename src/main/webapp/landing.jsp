@@ -8,7 +8,6 @@ pageEncoding="UTF-8" %>
    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white">
-    
    <section class="py-20 h-[80vh] flex justify-center items-center">
       <div class="container mx-auto px-4">
         <h1 class="text-5xl font-bold mb-8">CourseMania</h1>

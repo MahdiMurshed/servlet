@@ -30,8 +30,10 @@ Date: 2023-05-09
       try 
       { Class.forName("com.mysql.cj.jdbc.Driver");
       Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db","root","12345678");
-      String sql="select course_name,course_code from courses;" ;
+      String email = (String)session.getAttribute("email");
+      String sql="SELECT course_name, course_code FROM courses WHERE course_code NOT IN (SELECT student_courses.course_code FROM student_courses LEFT JOIN courses ON student_courses.course_code = courses.course_code WHERE email= ?) ;" ;
       PreparedStatement stmt=con.prepareStatement(sql);
+      stmt.setString(1,email);
       ResultSet rs=stmt.executeQuery();
       if(rs.next()==false) 
         { out.println("No Records in the table");

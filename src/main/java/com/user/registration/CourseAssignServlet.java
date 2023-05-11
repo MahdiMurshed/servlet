@@ -122,6 +122,8 @@ public class CourseAssignServlet extends HttpServlet {
 				e.printStackTrace();
 			}
         }
+        dispatcher=request.getRequestDispatcher("/pages/CourseAssign.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
