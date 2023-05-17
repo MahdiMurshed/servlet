@@ -14,6 +14,7 @@ Date: 2023-05-09
   </head>
 
   <body class="bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+  <jsp:include page="components/Navbar.jsp" />
     <div class="flex items-center justify-center pt-8">
       <div class="px-8 py-6 mx-4 text-left bg-gray-800 text-white border border-blue-400 shadow-lg rounded-md md:w-1/3 lg:w-1/3 sm:w-1/3">
         <div class="flex justify-center">
@@ -27,7 +28,7 @@ Date: 2023-05-09
           </svg>
         </div>
         <h3 class="text-2xl  font-bold text-center">Create an Account</h3>
-        <form method="post" action="register">
+        <form method="post" action="register-teacher">
           <div class="mt-4">
             <div>
               <label class="block" for="Name">Name<label>
@@ -50,7 +51,7 @@ Date: 2023-05-09
               <select id="countries" name="type"
                 class="bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-gray-800 border-blue-400 text-white">
                 <option selected>Choose a type</option>
-                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
               </select>
             </div>
             <div class="mt-4">

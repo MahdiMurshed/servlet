@@ -16,10 +16,10 @@ import java.sql.SQLException;
 /**
  * Servlet implementation class RegistrationServlet
  */
-@WebServlet("/register")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/register-teacher")
+public class RegisterTeacher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public RegistrationServlet() {
+	public RegisterTeacher() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher view=request.getRequestDispatcher("/pages/Signup.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("/pages/RegisterTeacher.jsp");
 		view.forward(request, response);
 	}
 	/**
@@ -64,10 +64,10 @@ public class RegistrationServlet extends HttpServlet {
         	pst.setString(2, email);
         	pst.setString(3, password);
         	pst.setString(4, contact);
-        	pst.setString(5, "student");
+        	pst.setString(5, "teacher");
         	pst.setString(6, "ok");
         	int rowCount = pst.executeUpdate();
-        	dispatcher = request.getRequestDispatcher("/pages/Login.jsp");
+        	dispatcher = request.getRequestDispatcher("/pages/RegisterTeacher.jsp");
         	if(rowCount > 0) {
         		request.setAttribute("status", "success");
         	}else {

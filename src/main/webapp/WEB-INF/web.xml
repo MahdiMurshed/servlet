@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
   <display-name>Servlet-Project</display-name>
   <welcome-file-list>
+    <welcome-file>landing.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -38,5 +39,65 @@
   <servlet-mapping>
     <servlet-name>CreateCourseServlet</servlet-name>
     <url-pattern>/course</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CourseAssignServlet</display-name>
+    <servlet-name>CourseAssignServlet</servlet-name>
+    <servlet-class>com.user.registration.CourseAssignServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseAssignServlet</servlet-name>
+    <url-pattern>/assign-course</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CourseRegistrationServlet</display-name>
+    <servlet-name>CourseRegistrationServlet</servlet-name>
+    <servlet-class>com.user.registration.CourseRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseRegistrationServlet</servlet-name>
+    <url-pattern>/register-course</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisteredCoursesServlet</display-name>
+    <servlet-name>RegisteredCoursesServlet</servlet-name>
+    <servlet-class>com.user.registration.RegisteredCoursesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisteredCoursesServlet</servlet-name>
+    <url-pattern>/registered-courses</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TeacherCourses</display-name>
+    <servlet-name>TeacherCourses</servlet-name>
+    <servlet-class>com.user.registration.TeacherCourses</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherCourses</servlet-name>
+    <url-pattern>/TeacherCourses</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisteredStudentsServlet</display-name>
+    <servlet-name>RegisteredStudentsServlet</servlet-name>
+    <servlet-class>com.user.registration.RegisteredStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisteredStudentsServlet</servlet-name>
+    <url-pattern>/registered-students</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterTeacher</display-name>
+    <servlet-name>RegisterTeacher</servlet-name>
+    <servlet-class>com.user.registration.RegisterTeacher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterTeacher</servlet-name>
+    <url-pattern>/RegisterTeacher</url-pattern>
   </servlet-mapping>
 </web-app>

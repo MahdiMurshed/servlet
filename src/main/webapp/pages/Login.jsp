@@ -1,3 +1,8 @@
+<!-- 
+Description: This JSP file allows users to login to their accounts.
+Author: Mahdi Murshed & Tahsina Bintay Azam
+Date: 2023-05-09
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <!DOCTYPE html>
   <html>
@@ -8,7 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="min-h-screen bg-gray-900">
+  <body class="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black">
   <div class="flex justify-center items-center h-screen">
       <div
         class="px-8 py-6 mx-4 text-left bg-gray-800 text-white border border-blue-400 shadow-lg rounded-md md:w-1/3 lg:w-1/3 sm:w-1/3">
@@ -36,6 +41,12 @@
           <div class="flex">
             <button type="submit" class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>
           </div>
+           <div class="mt-6 text-grey-dark">
+              Do not have an account? 
+              <a class="text-blue-600 hover:underline" href="/Servlet-Project/signup">
+                Sign Up
+              </a>
+            </div>
         </form>
       </div>
       </div>
